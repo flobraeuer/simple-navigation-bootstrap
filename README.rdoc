@@ -17,9 +17,13 @@ In addition to generating Bootstrap-comptible list markup, you may specify
 an <tt>:icon</tt> attribute on your navigation items, either as an array 
 or string, containing Bootstrap {icon classes}[http://twitter.github.com/bootstrap/base-css.html#icons], to add an icon to the item.
 
+Furthermore you can add a <tt>.brand</tt> paragraph-tag, just with
+ navigation.brand = 'Example Brand'
+
 == Examples
 To create a navigation menu, you might do something like this:
- SimpleNavigation::Configuration.run do |navigation|  
+ SimpleNavigation::Configuration.run do |navigation|
+   navigation.brand = 'Entertainment Store'
    navigation.items do |primary|
      primary.item :music, 'Music', musics_path
      primary.item :dvds, 'Dvds', dvds_path
