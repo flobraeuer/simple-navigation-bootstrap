@@ -17,8 +17,9 @@ module SimpleNavigation
         SimpleNavigation.config.selected_class = config_selected_class
         if skip_if_empty? && item_container.empty?
           ''
-        else  
-          content_tag(:ul, list_content, {:id => item_container.dom_id, :class => item_container.dom_class}) 
+        else
+          brand = content_tag(:p, SimpleNavigation.config.brand, {:class=> "brand"}).html_safe rescue "debug"
+          brand + content_tag(:ul, list_content, {:id => item_container.dom_id, :class => item_container.dom_class}) 
         end
       end
 
