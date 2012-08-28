@@ -18,8 +18,11 @@ module SimpleNavigation
         if skip_if_empty? && item_container.empty?
           ''
         else
-          if brand=SimpleNavigation.config.options["brand"] then list_content += content_tag(:p, brand, {:class=> "brand"}).html_safe end
-          content_tag(:ul, list_content, {:id => item_container.dom_id, :class => item_container.dom_class}) 
+          content = content_tag(:ul, list_content, {:id => item_container.dom_id, :class => item_container.dom_class})
+          if brand=SimpleNavigation.config.options["brand"]
+            content = content_tag(:p, brand, {:class=> "brand"}).html_safe + content
+          end
+          content
         end
       end
 
